@@ -47,7 +47,7 @@ public:
 	void addBranch(Node* node1, Node* node2, int branch_weight);
 	void deleteBranch(Branch* branch);
 
-	void buildPath(std::vector<int> Nodes, bool visibility);
+	int buildPath(std::vector<int> Nodes, bool visibility);
 
 	Node* findNodeById(int id);
 	Node* findNodeByPoint(int x, int y);

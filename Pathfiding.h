@@ -41,7 +41,7 @@ private:
 
 	std::vector<int> start_a_star(int start, int goal);
 
-	int getMaxArcIterations(int tagetLenth);
+	int getMaxArcIterations(int targetLength);
 
 	std::vector<int> ArcIterationMethod(int start, int goal, int targetLength, const std::vector<int>& p0_path);
 
@@ -60,4 +60,3 @@ public:
 };
 
 #endif
-

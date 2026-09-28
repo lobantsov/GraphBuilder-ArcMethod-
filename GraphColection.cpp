@@ -99,7 +99,8 @@ Branch* GraphCollection::findBranchByPoint(int x, int y){
 	return NULL;
 }
 
-void GraphCollection::buildPath(std::vector<int> Nodes, bool visibility){
+int GraphCollection::buildPath(std::vector<int> Nodes, bool visibility){
+	int path_weight = 0;
 	for (int i = 0; i < Nodes.size(); i++) {
         Node* n = findNodeById(Nodes[i]);
 		if (n) {
@@ -114,13 +115,15 @@ void GraphCollection::buildPath(std::vector<int> Nodes, bool visibility){
                 for (int j = 0; j < branches.size(); ++j) {
                     Branch* b = branches[j];
 					if ((b->node1 == n1 && b->node2 == n2) || (b->node1 == n2 && b->node2 == n1)) {
-                        this->mediator_->Notify_draw_selected_branch(b,visibility);
+						this->mediator_->Notify_draw_selected_branch(b,visibility);
+						path_weight += b->weigth;
                         break;
                     }
                 }
             }
         }
 	}
+	return path_weight;
 }
 
 void GraphCollection::saveBinary(std::string filename){

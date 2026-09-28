@@ -260,7 +260,7 @@ void __fastcall TMainForm::BTFindPathClick(TObject *Sender)
 		for (int i = 0; i < path.size(); ++i) {
 			Memo1->Lines->Add(IntToStr(path[i]));
 		}
-		graph_collection->buildPath(path, true);
+		LBTargetWeight->Caption = graph_collection->buildPath(path, true);
 	}
 
 }
